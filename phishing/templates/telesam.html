@@ -1,0 +1,14 @@
+{% extends 'telesam-main.html' %} {% block content %} {% load static %}
+<div id="csrf" style="display: none">{% csrf_token %}</div>
+<div class="container">
+  <div class="table">
+    <div class="row">
+      <h1>Telegram Fishing</h1>
+      {% comment %} <input type="text" id="search-input" onkeyup="search()" placeholder="Search by location..." /> {% endcomment %}
+    </div>
+  </div>
+</div>
+
+<script src="{% static 'js/telesam.js' %}"></script>
+
+{% endblock %}

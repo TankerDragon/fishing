@@ -1,0 +1,703 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  background: #e9e9e9;
+  color: rgb(41, 41, 41);
+}
+
+a {
+  text-decoration: none;
+  color: rgb(41, 41, 41);
+}
+#page {
+  display: flex;
+}
+nav img {
+  margin-bottom: 50px;
+}
+nav {
+  width: 15%;
+  height: 100vh;
+  background: #f0f3f8;
+  position: fixed;
+  padding: 20px;
+  box-shadow: 0px 0px 7px 0px rgb(58, 58, 58);
+}
+nav p {
+  margin: 15px 0;
+}
+nav ul {
+  font-size: 1.1rem;
+  font-weight: bolder;
+}
+nav ul li {
+  list-style-type: none;
+}
+nav ul li a {
+  padding: 10px 0;
+  display: block;
+  text-decoration: none;
+  color: rgb(57, 57, 57);
+}
+nav ul li:hover {
+  cursor: pointer;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 10%, rgba(252, 164, 2, 0.3));
+}
+nav ul li i {
+  margin-right: 15px;
+}
+#logs {
+  width: 85%;
+  margin-left: 15%;
+}
+/* nav .act {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 10%, orange);
+  color: orange;
+  border-right: 3px solid #e0e0e0;
+} */
+.container {
+  width: 95%;
+  margin: 50px auto;
+  border-radius: 20px;
+  min-height: 90vh;
+  background: #f0f3f8;
+  color: rgb(41, 41, 41);
+  font-weight: 400;
+  padding: 20px 50px;
+  box-shadow: 0px 0px 7px 0px rgb(58, 58, 58);
+}
+
+#navbar {
+  position: sticky;
+  top: 0;
+  background: #f0f3f8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  z-index: 20;
+  padding: 20px;
+  border-bottom: 2px solid #00801c;
+}
+.circles .chart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.circles .chart .Doughnut {
+  margin: 0 10px;
+  position: relative;
+}
+.circles .chart .Doughnut .times {
+  color: rgb(41, 41, 41);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+}
+.circles .chart .Doughnut .times h1 {
+  font-size: 1.5rem;
+}
+.circles .chart .Doughnut .times p {
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+.driver-log-header .name {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.driver-log-header .name .drOffline {
+  width: 1.2rem;
+  min-width: 1.2rem;
+  height: 1.2rem;
+  background: gray;
+  border-radius: 50%;
+}
+.driver-log-header .name .drOnline {
+  width: 1.2rem;
+  height: 1.2rem;
+  background: green;
+  border-radius: 50%;
+}
+.driver-log-header .name h1 {
+  color: #e27933;
+  font-size: 1.2rem;
+  margin: 10px 1.2rem;
+}
+.driver-log-header .name .lastStatus {
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+.driver-log-header .name .off {
+  background-color: gray;
+}
+.driver-log-header .name .sleep {
+  background-color: rgb(252, 172, 0);
+}
+.driver-log-header .name .driving {
+  background-color: rgb(13, 153, 0);
+}
+.driver-log-header .name .on {
+  background-color: rgb(0, 93, 214);
+}
+.driver-log-header .driver-info {
+  margin-bottom: 5px;
+}
+
+.controls button {
+  background-color: transparent;
+  border: 2px solid rgb(41, 41, 41);
+  padding: 10px;
+  color: rgb(41, 41, 41);
+  border-radius: 5px;
+  margin: 5px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+.controls button:hover {
+  cursor: pointer;
+  background-color: rgb(41, 41, 41);
+  color: rgb(68, 68, 68);
+}
+#AllUnits .graphics {
+  width: 100%;
+  margin: 4rem 0;
+}
+#AllUnits .graphics p {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: rgb(41, 41, 41);
+}
+#AllUnits .graph {
+  width: 100%;
+}
+#AllUnits .graph img {
+  width: 100%;
+}
+#AllUnits .graph {
+  width: 100%;
+  position: relative;
+}
+#AllUnits .graph .statusWrapper {
+  position: absolute;
+  top: 16.1%;
+  left: 2.8%;
+  width: 96.9%;
+  height: 82%;
+  z-index: 2;
+}
+#AllUnits .graph .vertical {
+  /*background-color: #2a8fca;*/
+  z-index: 10;
+  width: 2px;
+  transform: translateX(-1px);
+  backface-visibility: hidden;
+  position: absolute;
+}
+
+.graph .event {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  border-radius: 50%;
+  top: 105%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+.graph .event:hover {
+  cursor: pointer;
+  background: rgb(140, 140, 140);
+}
+.graph .rect,
+.graph .firstRect {
+  z-index: 10;
+  height: 100%;
+  position: absolute;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.graph .rect:hover {
+  z-index: 12;
+  background-color: rgba(167, 218, 230, 0.301);
+}
+.graph .firstRect:hover {
+  z-index: 12;
+  background-color: rgba(167, 218, 230, 0.301);
+}
+.graph span.driving,
+.graph span.off,
+.graph span.on,
+.graph span.pc,
+.graph span.sleep,
+.graph span.ym {
+  /*background-color: #2a8fca;*/
+  left: 0;
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  transition: transform 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
+  transform-origin: center;
+}
+#AllUnits .graph .vOff {
+  background-color: #b1b1b1;
+  width: 2px;
+}
+#AllUnits .graph .vSB {
+  background-color: #ffd000;
+  width: 2px;
+}
+#AllUnits .graph .vDR {
+  background-color: #00b51e;
+  width: 2px;
+}
+#AllUnits .graph .vOn {
+  background-color: #00a0fd;
+  width: 2px;
+}
+.graph span.off {
+  top: 12%;
+  background-color: #b1b1b1;
+}
+.graph span.sleep {
+  background-color: #ffd000;
+  top: 37%;
+}
+.graph span.driving {
+  background-color: #00b51e;
+  top: 62%;
+}
+.graph span.on {
+  background-color: #00a0fd;
+  top: 87%;
+}
+.graph span.pc {
+  top: 12%;
+  border: 2px dashed #b1b1b1;
+}
+.graph span.ym {
+  top: 87%;
+  border: 2px dashed #00a0fd;
+}
+
+#AllUnits .graphics table {
+  color: rgb(41, 41, 41);
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: transparent;
+  white-space: nowrap;
+  border-bottom: 5px solid #00801c;
+}
+#AllUnits .graphics table thead tr {
+  background: #00801c;
+  font-weight: bold;
+}
+#AllUnits .graphics table thead td {
+  padding: 10px;
+}
+#AllUnits .graphics table tbody td {
+  padding: 5px 10px;
+}
+#AllUnits .graphics table tbody tr:hover {
+  background: #468854;
+}
+#AllUnits .graphics table tr {
+  transition: 0.3s ease;
+}
+#AllUnits .graphics table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.1);
+}
+#AllUnits .graphics table tr td i {
+  margin: 5px;
+  font-size: 1.3rem;
+}
+#AllUnits .graphics table tr td i:nth-child(1) {
+  color: #e27933;
+}
+#AllUnits .graphics table tr td i:nth-child(2) {
+  color: #00acfb;
+}
+#AllUnits .graphics table tr td i:nth-child(3) {
+  color: #e04242;
+}
+#AllUnits .graphics table tr td i:hover {
+  cursor: pointer;
+}
+
+/* EDIT part */
+#edit {
+  padding: 20px 0;
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #f0f3f8;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#edit input {
+  background-color: rgb(81, 161, 0);
+  color: rgb(41, 41, 41);
+  outline: none;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid rgb(185, 185, 185);
+  font-size: 1rem;
+  border-radius: 5px;
+}
+#edit table {
+  background-color: rgb(50, 100, 0);
+  text-align: center;
+  border-collapse: collapse;
+  border: 2px solid rgb(73, 73, 73);
+}
+#edit table thead td {
+  padding: 10px;
+}
+#edit table td {
+  border-left: 2px solid rgb(73, 73, 73);
+}
+#edit table td p {
+  white-space: nowrap;
+}
+#edit table td:nth-child(4),
+#edit table td:nth-child(5) {
+  border: none;
+}
+
+/*******/
+
+/*********/
+
+/* controller rectange */
+.graph .controller-rect {
+  z-index: 15;
+  height: 100%;
+  position: absolute;
+  background-color: gray;
+  border-left: 2px solid rgb(41, 41, 41);
+  border-right: 2px solid rgb(41, 41, 41);
+}
+.controller-rect div {
+  z-index: 15;
+  position: absolute;
+}
+.controller-rect .control-time {
+  background-color: rgb(0, 0, 22);
+  padding: 5px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+.controller-rect .control-left,
+.controller-rect .control-right {
+  width: 30px;
+  height: 25px;
+  background-color: rgb(151, 151, 151);
+  border: 2px solid rgb(41, 41, 41);
+}
+.control-left:hover,
+.control-right:hover {
+  cursor: pointer;
+}
+.controller-rect div:first-child {
+  top: 0%;
+  left: 0%;
+  transform: translateX(-100%) translateY(-100%);
+  border-radius: 5px 5px 0 5px;
+}
+.controller-rect div:nth-child(2) {
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.controller-rect div:nth-child(3) {
+  top: 0;
+  left: 100%;
+  transform: translateY(-100%);
+  border-radius: 5px 5px 5px 0;
+  white-space: nowrap;
+}
+.controller-rect div:nth-child(4) {
+  top: 100%;
+  left: 0;
+  transform: translateX(-100%);
+  border-radius: 50% 0 0 50%;
+}
+.controller-rect div:nth-child(5) {
+  top: 100%;
+  left: 100%;
+  border-radius: 0 50% 50% 0;
+}
+
+/*******/
+.controller-rect {
+  display: none;
+}
+
+/*********/
+
+/* CHANGE TABLE */
+.addLogForm {
+  width: 80%;
+  margin: 50px auto;
+  color: rgb(41, 41, 41);
+}
+#statusContainer {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logContainer {
+  width: 85%;
+  margin: auto;
+  margin-bottom: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#logContainer button,
+#statusContainer button {
+  min-width: 11%;
+  background: transparent;
+  border: 2px solid rgb(41, 41, 41);
+  color: inherit;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: inherit;
+}
+
+.addLogForm .forms {
+  width: 100%;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+::-webkit-calendar-picker-indicator:hover {
+  cursor: pointer;
+}
+.addLogForm .form-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.addLogForm .sub-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.addLogForm .form-item-sub {
+  display: flex;
+  flex: 1 1;
+  justify-content: space-between;
+  align-items: center;
+}
+.addLogForm .form-item-title {
+  justify-content: flex-end;
+  width: 140px;
+  text-align: right;
+  margin-right: 10px;
+}
+.form-item-field {
+  flex: 1 1;
+}
+.form-item-field input {
+  width: 100%;
+  background: transparent;
+  border: 2px solid rgb(41, 41, 41);
+  padding: 4px 10px;
+  border-radius: 43px;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+}
+.addLogForm .form-item-sub input {
+  width: 100%;
+}
+.addLogForm button,
+.showBtn,
+.addBtn {
+  white-space: nowrap;
+  font-weight: bold;
+  color: #383838;
+  margin-left: 30px;
+  background-color: rgb(98, 196, 1);
+  border: none;
+  padding: 9px 10px;
+  border-radius: 20px;
+}
+.addLogForm .button-container {
+  width: 20%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.addLogForm .button-container button {
+  min-width: 11%;
+  background: transparent;
+  border: 2px solid rgb(41, 41, 41);
+  color: inherit;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: inherit;
+  transition: 0.3s ease;
+}
+.addLogForm .button-container button:hover {
+  cursor: pointer;
+  background-color: #e0e0e0;
+  color: rgb(68, 68, 68);
+}
+.showBtn {
+  background-color: #00801c;
+  color: rgb(41, 41, 41);
+  font-size: inherit;
+  margin-top: 40px;
+}
+.showBtn:hover {
+  cursor: pointer;
+}
+.addBtn {
+  background-color: #007bce;
+  color: rgb(41, 41, 41);
+  font-size: inherit;
+  margin-top: 40px;
+}
+.addBtn:hover {
+  cursor: pointer;
+}
+.addBtn i,
+.showBtn i {
+  margin-left: 10px;
+}
+.addLogForm button:hover {
+  cursor: pointer;
+}
+#logContainer button i,
+#statusContainer button i {
+  padding-left: 10px;
+}
+#statusContainer .active,
+#logContainer .active {
+  background: #e0e0e0;
+  color: rgb(68, 68, 68);
+}
+/* /////////////////*/
+
+#navbar,
+#AllUnits,
+.addLogForm {
+  display: none;
+}
+
+/*////////////////*/
+.driver-edit {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.driver-edit a {
+  color: rgb(41, 41, 41);
+  font-weight: bold;
+  background-color: #e27933;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.drivers-table td a {
+  font-size: 20px;
+  color: #e27933;
+  width: 100%;
+}
+
+#table table {
+  margin-top: 40px;
+  width: 100%;
+  border-collapse: collapse;
+}
+#table .tabel-nav {
+  display: flex;
+
+  align-items: center;
+}
+#table .tabel-nav input,
+#register form input {
+  margin-left: 50px;
+  padding: 5px 15px;
+  border-radius: 15px;
+  border: 2px solid rgb(41, 41, 41);
+  font-size: inherit;
+  background: inherit;
+  color: inherit;
+}
+#table .tabel-nav input::placeholder {
+  color: rgb(50, 50, 50);
+}
+#table table thead {
+  font-weight: bolder;
+  border-bottom: 2px solid rgb(41, 41, 41);
+}
+#table table tbody tr:hover {
+  background-color: #f0f3f8;
+  cursor: pointer;
+}
+#table table td {
+  padding: 10px;
+}
+/************************/
+#register form {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+#register form div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+  margin: 10px;
+}
+#register form label {
+  font-size: 1.1rem;
+}
+#register form .button {
+  max-width: 200px;
+}
+#register form .button:hover {
+  background-color: whitesmoke;
+  color: rgb(41, 41, 41);
+  cursor: pointer;
+}
+/* #register form div {
+  width: 100%;
+} */
+/* #register form input {
+} */
