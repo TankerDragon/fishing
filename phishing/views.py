@@ -1,10 +1,27 @@
+from django import http
 from django.http import HttpResponse
 from django.shortcuts import render
 import string
-from .fishing import added
+from rest_framework.response import Response
+from .models import Fish
+from rest_framework.decorators import api_view
+from .serializers import FishSerializer
+# from .fishing import added``
 
 def main(request):
-    return HttpResponse('added')
+    return render(request, 'telesam.html')
+
+
+@api_view(['GET'])
+def getData(request):
+    if request.method == "GET":
+            queryset = Fish.objects.all().order_by('-time')
+            serializer = FishSerializer(queryset, many=True)
+            return Response(serializer.data)
+    else:
+        return HttpResponse('This page does not support the type of your request')
+
+
 #bir sutka davomida chiqqan yuklarni hammasini DIV qilib olsin, 
 #kerSSak bo'lganlarini, search qilib bersin. Type qilishi bilan filtrlanaversin.
 

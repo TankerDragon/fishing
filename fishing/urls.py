@@ -18,5 +18,6 @@ from django.urls import path
 from phishing import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.main)
+    path('', views.main),
+    path('get-data/', views.getData)
 ]

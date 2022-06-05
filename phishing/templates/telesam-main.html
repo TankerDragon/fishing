@@ -21,8 +21,8 @@
       <div class="categories"></div>
       <strong>Logged in by: {{ user }}</strong>
       <div>
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'logout' %}">Log out</a>
+        {% comment %} <a href="{% url 'home' %}">Home</a> {% endcomment %}
+        {% comment %} <a href="{% url 'logout' %}">Log out</a> {% endcomment %}
       </div>
     </nav>
     <div id="main">{% block content %} {% endblock %}</div>

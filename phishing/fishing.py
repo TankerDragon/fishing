@@ -54,7 +54,8 @@ async def my_event_handler(event):
         new_text = new_text[:2000]
     f.text = new_text
     print('*********************')
-    await sync_to_async(f.save)()
+    if new_text != '':
+        await sync_to_async(f.save)()
 
 
 client.start()

@@ -4,8 +4,21 @@
   <div class="table">
     <div class="row">
       <h1>Telegram Fishing</h1>
-      {% comment %} <input type="text" id="search-input" onkeyup="search()" placeholder="Search by location..." /> {% endcomment %}
+      <div class="search-bar">
+        <input type="text" id="search-input" onkeyup="search()" placeholder="Search by location..." />
+          <i class="fa-solid fa-bell"></i>
+          <i class="fa-solid fa-rotate" onclick="get();"></i>
+      </div>
     </div>
+     <table>
+      <thead>
+        <td>Time</td>
+        <td>Text</td>
+        <td>Actions</td>
+      </thead>
+      <tbody id="tbody">
+      </tbody>
+    </table>
   </div>
 </div>
 
